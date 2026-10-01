@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michelle Hernandez | Rutgers Accounting Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        butter: {
+                            50: '#fffdf5',
+                            100: '#fffbeb',
+                            200: '#fef3c7',
+                            300: '#fde68a',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        },
+                        sky: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        navySlate: '#0f172a',
+                    },
+                    boxShadow: {
+                        'glow-sky': '0 12px 35px -10px rgba(56, 189, 248, 0.28)',
+                        'glow-butter': '0 12px 35px -10px rgba(251, 191, 36, 0.28)',
+                        'soft': '0 20px 40px -15px rgba(15, 23, 42, 0.06)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #faf9f6;
+            color: #0f172a;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(224, 242, 254, 0.85);
+        }
+        .glass-card-amber {
+            background: rgba(255, 253, 245, 0.9);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(254, 243, 199, 0.95);
+        }
+        .gradient-mesh {
+            background-color: #faf9f6;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(224, 242, 254, 0.75) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(254, 243, 199, 0.7) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(240, 249, 255, 0.6) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(224, 242, 254, 0.65) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(254, 243, 199, 0.6) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="gradient-mesh min-h-screen antialiased selection:bg-sky-200 selection:text-sky-900">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 glass-card bg-slate-900/90 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-sky-400/30">
+        <div class="w-8 h-8 rounded-full bg-sky-500/20 text-sky-300 flex items-center justify-center">
+            <i class="fa-solid fa-check text-sm"></i>
+        </div>
+        <span id="toast-message" class="text-sm font-medium">Copied to clipboard!</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav class="fixed w-full top-0 z-40 bg-white/80 backdrop-blur-md border-b border-sky-100/80 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-sky-400 via-sky-200 to-butter-200 p-0.5 shadow-md shadow-sky-200/50 group-hover:scale-105 transition-transform duration-300">
+                        <div class="w-full h-full bg-white rounded-[14px] flex items-center justify-center text-sky-800 font-heading font-extrabold text-base">
+                            MH
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-lg font-bold tracking-tight text-slate-900 block font-heading leading-tight group-hover:text-sky-700 transition-colors">Michelle Hernandez</span>
+                        <span class="text-xs text-sky-700 font-medium tracking-wide flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                            Rutgers Business School • Honors College
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#about" class="text-slate-600 hover:text-sky-700 transition-colors text-sm font-medium">About</a>
+                    <a href="#skills" class="text-slate-600 hover:text-sky-700 transition-colors text-sm font-medium">Skills</a>
+                    <a href="#projects" class="text-slate-600 hover:text-sky-700 transition-colors text-sm font-medium">Projects</a>
+                    <a href="#experience" class="text-slate-600 hover:text-sky-700 transition-colors text-sm font-medium">Experience</a>
+                    <a href="#contact" class="text-slate-600 hover:text-sky-700 transition-colors text-sm font-medium">Contact</a>
+                    <a href="Michelle_Hernandez_Resume.pdf" target="_blank" class="px-5 py-2.5 bg-gradient-to-r from-sky-600 to-sky-700 hover:from-sky-700 hover:to-sky-800 text-white rounded-full text-sm font-semibold transition-all shadow-md shadow-sky-200 hover:shadow-lg hover:shadow-sky-300/50 flex items-center gap-2">
+                        <i class="fa-solid fa-file-pdf text-sm"></i>
+                        <span>Download Resume</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2.5 text-slate-600 hover:text-sky-700 rounded-xl hover:bg-sky-50 transition-colors focus:outline-none" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-sky-100 px-6 pt-3 pb-6 space-y-3 shadow-xl">
+            <a href="#about" class="mobile-link block text-slate-700 hover:text-sky-700 py-2.5 font-medium border-b border-slate-100">About</a>
+            <a href="#skills" class="mobile-link block text-slate-700 hover:text-sky-700 py-2.5 font-medium border-b border-slate-100">Skills & Competencies</a>
+            <a href="#projects" class="mobile-link block text-slate-700 hover:text-sky-700 py-2.5 font-medium border-b border-slate-100">Featured Projects</a>
+            <a href="#experience" class="mobile-link block text-slate-700 hover:text-sky-700 py-2.5 font-medium border-b border-slate-100">Experience & Leadership</a>
+            <a href="#contact" class="mobile-link block text-slate-700 hover:text-sky-700 py-2.5 font-medium border-b border-slate-100">Contact</a>
+            <a href="Michelle_Hernandez_Resume.pdf" target="_blank" class="mobile-link block text-sky-700 font-bold py-2.5 flex items-center justify-between">
+                <span>Download Resume (PDF)</span>
+                <i class="fa-solid fa-file-pdf text-sm"></i>
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-24 lg:pt-28">
+
+        <!-- Hero & About Section -->
+        <section id="about" class="py-12 lg:py-20 relative overflow-hidden">
+            <div class="absolute top-10 left-10 w-80 h-80 bg-butter-200/40 rounded-full blur-3xl -z-10"></div>
+            <div class="absolute top-20 right-10 w-96 h-96 bg-sky-200/50 rounded-full blur-3xl -z-10"></div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Main Profile Header Card -->
+                <div class="glass-card p-8 sm:p-10 rounded-3xl shadow-soft mb-8 border border-sky-100 relative overflow-hidden">
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+                        
+                        <!-- Headshot Avatar Frame -->
+                        <div class="relative group flex-shrink-0">
+                            <div class="absolute -inset-1 bg-gradient-to-tr from-butter-300 via-sky-300 to-sky-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                            <img src="DSC02702.jpg" 
+                                 alt="Michelle Hernandez Headshot" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/400x400/38bdf8/ffffff?text=Michelle+Hernandez';"
+                                 class="relative w-44 h-44 rounded-full object-cover border-4 border-amber-200 shadow-xl flex-shrink-0">
+                            <div class="absolute bottom-2 right-2 bg-amber-400 text-amber-950 p-2 rounded-full shadow-md border border-white" title="Honors College Scholar">
+                                <i class="fa-solid fa-award text-xs"></i>
+                            </div>
+                        </div>
+
+                        <!-- Bio Content -->
+                        <div class="flex-grow text-center md:text-left">
+                            <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-sky-100 text-sky-800 border border-sky-200 shadow-sm">
+                                    <i class="fa-solid fa-graduation-cap text-sky-600 mr-1"></i>
+                                    Rutgers Business School
+                                </span>
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-butter-100 text-amber-900 border border-butter-200 shadow-sm">
+                                    <i class="fa-solid fa-award text-amber-600 mr-1"></i>
+                                    Honors College Scholar
+                                </span>
+                            </div>
+
+                            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight font-heading leading-tight mb-2">
+                                Michelle Hernandez
+                            </h1>
+                            <p class="text-sky-800 font-semibold text-base sm:text-lg mb-4">
+                                BS in Accounting Candidate <span class="text-slate-400">•</span> Expected May 2029
+                            </p>
+
+                            <!-- Badge Pills -->
+                            <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-6">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white text-slate-800 border border-slate-200 shadow-sm">
+                                    <i class="fa-solid fa-star text-amber-500"></i>
+                                    GPA 3.6 / 4.0
+                                </span>
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-50 text-sky-900 border border-sky-200 shadow-sm">
+                                    <i class="fa-solid fa-certificate text-sky-600"></i>
+                                    Dean's List (Fall '25)
+                                </span>
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-butter-50 text-amber-900 border border-butter-300 shadow-sm">
+                                    <i class="fa-solid fa-bullseye text-amber-600"></i>
+                                    CPA Track (May 2029)
+                                </span>
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-100/90 text-sky-900 border border-sky-200 shadow-sm">
+                                    <i class="fa-solid fa-building-columns text-sky-700"></i>
+                                    Big 4 Advisory & Audit Target
+                                </span>
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-50 text-purple-900 border border-purple-200 shadow-sm">
+                                    <i class="fa-solid fa-landmark text-purple-600"></i>
+                                    Douglass Residential College
+                                </span>
+                            </div>
+
+                            <!-- Featured Personal Statement -->
+                            <div class="glass-card-amber p-5 rounded-2xl border border-butter-200 shadow-sm text-slate-800 text-sm leading-relaxed italic font-medium">
+                                "Driven Accounting student at Rutgers Business School and Rutgers Honors College, combining analytical rigor and collaborative leadership to pursue a CPA track within Big 4 Audit, Assurance, and Advisory practices."
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Contact Action Bar -->
+                <div class="flex flex-wrap items-center justify-center sm:justify-between gap-4 p-4 glass-card rounded-2xl shadow-soft">
+                    <div class="flex flex-wrap items-center justify-center gap-3 text-xs font-medium text-slate-700">
+                        <a href="mailto:mh1844@scarletmail.rutgers.edu" class="flex items-center gap-2 hover:text-sky-700 transition-colors px-3 py-1.5 rounded-xl hover:bg-sky-50">
+                            <i class="fa-regular fa-envelope text-sky-600 text-sm"></i>
+                            <span>mh1844@scarletmail.rutgers.edu</span>
+                        </a>
+                        <span class="text-slate-300 hidden sm:inline">•</span>
+                        <a href="tel:7327840444" class="flex items-center gap-2 hover:text-sky-700 transition-colors px-3 py-1.5 rounded-xl hover:bg-sky-50">
+                            <i class="fa-solid fa-phone text-sky-600 text-xs"></i>
+                            <span>(732) 784-0444</span>
+                        </a>
+                        <span class="text-slate-300 hidden sm:inline">•</span>
+                        <a href="https://www.linkedin.com/in/michelle-hernandez-pro" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-sky-700 transition-colors px-3 py-1.5 rounded-xl hover:bg-sky-50">
+                            <i class="fa-brands fa-linkedin text-sky-600 text-sm"></i>
+                            <span>linkedin.com/in/michelle-hernandez-pro</span>
+                        </a>
+                    </div>
+
+                    <div class="flex items-center gap-2 w-full sm:w-auto justify-center">
+                        <button onclick="copyEmail('mh1844@scarletmail.rutgers.edu')" class="px-4 py-2 bg-white hover:bg-sky-50 text-sky-700 text-xs font-bold rounded-xl border border-sky-200 transition-all shadow-sm flex items-center gap-1.5">
+                            <i class="fa-regular fa-copy text-sky-600"></i>
+                            Copy Email
+                        </button>
+                        <a href="Michelle_Hernandez_Resume.pdf" target="_blank" class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold rounded-xl transition-all shadow-md shadow-sky-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            PDF Resume
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 lg:py-20 relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="px-3.5 py-1.5 bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider rounded-full border border-sky-200">Competencies</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 font-heading">Skills & Capabilities</h2>
+                    <p class="text-slate-600 text-base mt-2">Integrating technical accounting analysis, operational leadership, and active campus engagement.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Group 1: Technical & Audit Competencies -->
+                    <div class="glass-card p-7 rounded-3xl shadow-soft hover:shadow-glow-sky transition-all duration-300 flex flex-col justify-between border border-sky-100">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl mb-5 shadow-sm">
+                                <i class="fa-solid fa-calculator"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 font-heading mb-1">Technical & Audit</h3>
+                            <p class="text-xs text-sky-700 font-semibold mb-5">Audit Procedures & Financial Analysis</p>
+
+                            <ul class="space-y-3 text-slate-600 text-sm">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>GL Materiality & Audit Planning:</strong> Establishing scopes and account thresholds.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>CVP Financial Modeling:</strong> Operating income sensitivity & scenario modeling.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>Order-to-Cash (OTC) Review:</strong> Testing client internal controls & workflows.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>Ratio Analysis & Reporting:</strong> Financial statement & variance evaluation.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>MS Excel Spreadsheets:</strong> VLOOKUP, Pivot Tables, and financial functions.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Group 2: Professional Leadership & Soft Skills -->
+                    <div class="glass-card-amber p-7 rounded-3xl shadow-soft hover:shadow-glow-butter transition-all duration-300 flex flex-col justify-between border border-butter-200">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-butter-200 text-amber-900 flex items-center justify-center text-xl mb-5 shadow-sm">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 font-heading mb-1">Leadership & Soft Skills</h3>
+                            <p class="text-xs text-amber-800 font-semibold mb-5">Communication & Teamwork</p>
+
+                            <ul class="space-y-3 text-slate-600 text-sm">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-amber-600 text-xs mt-1"></i>
+                                    <span><strong>Adaptability & Agility:</strong> Excelling in fast-paced operational environments.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-amber-600 text-xs mt-1"></i>
+                                    <span><strong>Strategic Communication:</strong> Clear reporting and cross-team collaboration.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-amber-600 text-xs mt-1"></i>
+                                    <span><strong>High-Volume Client Service:</strong> Calm, attentive service during peak hours.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-amber-600 text-xs mt-1"></i>
+                                    <span><strong>Event Coordination:</strong> Managing catering budgets, logistics, and flyers.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-amber-600 text-xs mt-1"></i>
+                                    <span><strong>Bilingual Fluency:</strong> Native Spanish speaker & Fluent English speaker.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Group 3: Certifications & Organizations -->
+                    <div class="glass-card p-7 rounded-3xl shadow-soft hover:shadow-glow-sky transition-all duration-300 flex flex-col justify-between border border-sky-100">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-800 flex items-center justify-center text-xl mb-5 shadow-sm">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 font-heading mb-1">Organizations & Training</h3>
+                            <p class="text-xs text-sky-700 font-semibold mb-5">Certifications & Involvement</p>
+
+                            <ul class="space-y-3 text-slate-600 text-sm">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-certificate text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>TIPS Certified:</strong> On-Premise Alcohol Server Training.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-heart-pulse text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>CPR Certified & Bartending:</strong> Licensed and emergency prepared.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-award text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>Beta Alpha Psi (BAP):</strong> Financial Information Honor Society.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-landmark text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>Rutgers Accounting Association:</strong> Professional development.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-people-roof text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>DECA & Honors Latinx Leader:</strong> Campus leadership & outreach.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 lg:py-20 relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="px-3.5 py-1.5 bg-butter-200/70 text-amber-900 text-xs font-bold uppercase tracking-wider rounded-full border border-butter-300">Portfolio</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 font-heading">Featured Projects & Simulations</h2>
+                    <p class="text-slate-600 text-base mt-2">Hands-on experience in audit planning, cost-volume-profit modeling, and organizational event execution.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                    <!-- Project 1: KPMG Simulation -->
+                    <div class="glass-card rounded-3xl overflow-hidden shadow-soft hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col border border-sky-100 group">
+                        <div class="p-6 bg-gradient-to-br from-sky-700 to-sky-900 text-white relative overflow-hidden">
+                            <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform"></div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-2.5 py-1 bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider rounded-md backdrop-blur-md">KPMG Virtual Experience</span>
+                                <i class="fa-solid fa-building-columns text-sky-200"></i>
+                            </div>
+                            <h3 class="text-lg font-bold font-heading leading-snug group-hover:text-butter-200 transition-colors">KPMG Audit & Assurance Analysis</h3>
+                            <p class="text-xs text-sky-200 mt-1">Client: Ashbourne Industries</p>
+                        </div>
+                        
+                        <div class="p-6 flex flex-col flex-grow bg-white/70">
+                            <p class="text-xs text-slate-600 leading-relaxed mb-6 flex-grow">
+                                Planned and evaluated audit procedures for hypothetical client Ashbourne Industries. Established account materiality thresholds, analyzed third-party confirmations, reviewed order-to-cash (OTC) internal control processes, and delivered audit findings video presentation.
+                            </p>
+
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span class="px-2.5 py-1 bg-sky-50 text-sky-800 text-[11px] font-semibold rounded-lg border border-sky-100">Audit Planning</span>
+                                <span class="px-2.5 py-1 bg-sky-50 text-sky-800 text-[11px] font-semibold rounded-lg border border-sky-100">Materiality Assessment</span>
+                                <span class="px-2.5 py-1 bg-butter-50 text-amber-900 text-[11px] font-semibold rounded-lg border border-butter-200">Confirmations</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-lg">OTC Review</span>
+                            </div>
+
+                            <div class="pt-4 border-t border-sky-100 flex items-center justify-between">
+                                <button onclick="showToast('KPMG Audit simulation walkthrough available upon request.')" class="text-xs font-bold text-sky-700 hover:text-sky-900 flex items-center gap-1.5 group/link">
+                                    <span>Simulation Details</span>
+                                    <i class="fa-solid fa-arrow-right text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                                </button>
+                                <span class="text-[11px] text-slate-400 font-medium">Virtual Experience</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Sir Henry CVP Model -->
+                    <div class="glass-card rounded-3xl overflow-hidden shadow-soft hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col border border-sky-100 group">
+                        <div class="p-6 bg-gradient-to-br from-slate-800 to-slate-900 text-white relative overflow-hidden">
+                            <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-butter-300/20 rounded-full blur-xl group-hover:scale-150 transition-transform"></div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-2.5 py-1 bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider rounded-md backdrop-blur-md">Managerial Case Study</span>
+                                <i class="fa-solid fa-chart-line text-amber-300"></i>
+                            </div>
+                            <h3 class="text-lg font-bold font-heading leading-snug group-hover:text-butter-200 transition-colors">Sir Henry CVP Financial Model</h3>
+                            <p class="text-xs text-slate-300 mt-1">Cost-Volume-Profit Decision Analysis</p>
+                        </div>
+                        
+                        <div class="p-6 flex flex-col flex-grow bg-white/70">
+                            <p class="text-xs text-slate-600 leading-relaxed mb-6 flex-grow">
+                                Built a comprehensive CVP model analyzing operating income sensitivity. Tested multi-variable scenarios including variable costs, supplier price shifts, and sales mix variations to provide strategic business decision recommendations.
+                            </p>
+
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span class="px-2.5 py-1 bg-butter-50 text-amber-900 text-[11px] font-semibold rounded-lg border border-butter-200">CVP Modeling</span>
+                                <span class="px-2.5 py-1 bg-sky-50 text-sky-800 text-[11px] font-semibold rounded-lg border border-sky-100">Financial Analysis</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-lg">Cost Accounting</span>
+                                <span class="px-2.5 py-1 bg-purple-50 text-purple-800 text-[11px] font-semibold rounded-lg border border-purple-100">Sensitivity Testing</span>
+                            </div>
+
+                            <div class="pt-4 border-t border-sky-100 flex items-center justify-between">
+                                <button onclick="showToast('Sir Henry CVP analysis model available upon request.')" class="text-xs font-bold text-sky-700 hover:text-sky-900 flex items-center gap-1.5 group/link">
+                                    <span>Model Details</span>
+                                    <i class="fa-solid fa-arrow-right text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                                </button>
+                                <span class="text-[11px] text-slate-400 font-medium">Rutgers Coursework</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Rutgers Honors College Cultural Engagement -->
+                    <div class="glass-card-amber rounded-3xl overflow-hidden shadow-soft hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col border border-butter-200 group">
+                        <div class="p-6 bg-gradient-to-br from-amber-600 to-amber-800 text-white relative overflow-hidden">
+                            <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-sky-200/20 rounded-full blur-xl group-hover:scale-150 transition-transform"></div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-2.5 py-1 bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider rounded-md backdrop-blur-md">Campus Leadership</span>
+                                <i class="fa-solid fa-people-group text-butter-200"></i>
+                            </div>
+                            <h3 class="text-lg font-bold font-heading leading-snug group-hover:text-butter-100 transition-colors">Honors College Cultural Initiative</h3>
+                            <p class="text-xs text-amber-100 mt-1">Latinx Affinity Group x RU Bachata Collab</p>
+                        </div>
+                        
+                        <div class="p-6 flex flex-col flex-grow bg-white/70">
+                            <p class="text-xs text-slate-600 leading-relaxed mb-6 flex-grow">
+                                Spearheaded cross-organizational collaboration with RU Bachata Club to host a beginner-friendly cultural event for the Honors College. Directed event strategy, budgeting, catering, scheduling, and promotional flyer campaigns.
+                            </p>
+
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span class="px-2.5 py-1 bg-butter-100 text-amber-900 text-[11px] font-semibold rounded-lg border border-butter-200">Event Management</span>
+                                <span class="px-2.5 py-1 bg-sky-50 text-sky-800 text-[11px] font-semibold rounded-lg border border-sky-100">Budgeting</span>
+                                <span class="px-2.5 py-1 bg-purple-50 text-purple-800 text-[11px] font-semibold rounded-lg border border-purple-100">Leadership</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-lg">Community Building</span>
+                            </div>
+
+                            <div class="pt-4 border-t border-butter-200 flex items-center justify-between">
+                                <button onclick="showToast('Affinity group event portfolio summary available upon request.')" class="text-xs font-bold text-amber-900 hover:text-amber-700 flex items-center gap-1.5 group/link">
+                                    <span>Initiative Summary</span>
+                                    <i class="fa-solid fa-arrow-right text-[10px] group-hover/link:translate-x-1 transition-transform"></i>
+                                </button>
+                                <span class="text-[11px] text-slate-400 font-medium">Rutgers Honors</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section id="experience" class="py-16 lg:py-20 relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="px-3.5 py-1.5 bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider rounded-full border border-sky-200">Experience</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 font-heading">Professional Experience & Leadership</h2>
+                    <p class="text-slate-600 text-base mt-2">Demonstrated financial responsibility, client engagement, and operational teamwork.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Left Column: Work Experience Cards -->
+                    <div class="lg:col-span-2 space-y-6">
+                        
+                        <!-- CPAC Bartender Role -->
+                        <div class="glass-card p-7 rounded-3xl shadow-soft hover:shadow-glow-sky transition-all duration-300 border border-sky-100">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-sky-100">
+                                <div>
+                                    <span class="px-2.5 py-0.5 bg-sky-100 text-sky-800 text-[11px] font-bold rounded-md">Performing Arts Center</span>
+                                    <h3 class="text-xl font-bold text-slate-900 font-heading mt-1">Bartender</h3>
+                                    <p class="text-xs text-sky-700 font-semibold">Carteret Performing Arts Center • Carteret, NJ</p>
+                                </div>
+                                <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full w-fit">June 2024 – Present</span>
+                            </div>
+
+                            <ul class="space-y-2.5 text-slate-600 text-sm leading-relaxed">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check-double text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>Cash Management & Accuracy:</strong> Managed cash register transactions up to $1,000 per event, handled payments, and maintained exact sales reconciliation records.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check-double text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>Customer Excellence:</strong> Offered exceptional customer service by greeting guests, taking orders, and ensuring patron satisfaction during high-volume events.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check-double text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>Team Collaboration & Opening/Closing:</strong> Supported 3–4 team members with opening and closing duties, inventory management, and restocking supplies.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check-double text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>Compliance & Safety:</strong> Checked identification to verify legal age requirements for alcohol consumption and maintained strict sanitation standards.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Chevy's Server Role -->
+                        <div class="glass-card p-7 rounded-3xl shadow-soft hover:shadow-glow-sky transition-all duration-300 border border-sky-100">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-sky-100">
+                                <div>
+                                    <span class="px-2.5 py-0.5 bg-amber-100 text-amber-900 text-[11px] font-bold rounded-md">Hospitality Services</span>
+                                    <h3 class="text-xl font-bold text-slate-900 font-heading mt-1">Server</h3>
+                                    <p class="text-xs text-sky-700 font-semibold">Chevy's Fresh Mex • Linden, NJ</p>
+                                </div>
+                                <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full w-fit">June 2026 – Present</span>
+                            </div>
+
+                            <ul class="space-y-2.5 text-slate-600 text-sm leading-relaxed">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check-double text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>Fast-Paced Guest Relations:</strong> Provided attentive and personable service to guests in a high-density restaurant environment while maintaining a welcoming dining experience.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check-double text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>Multi-Table Synchronization:</strong> Managed multiple tables simultaneously, accurately taking food/beverage orders while accommodating dietary requests.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check-double text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>Cross-Functional Communication:</strong> Communicated effectively with kitchen staff, bartenders, and fellow servers to ensure timely service execution.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check-double text-sky-600 text-xs mt-1"></i>
+                                    <span><strong>Financial POS Operations:</strong> Handled cash and credit transactions accurately while maintaining organized shift records following restaurant procedures.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Organizations & Campus Affiliations -->
+                    <div class="space-y-6">
+                        <div class="glass-card-amber p-7 rounded-3xl shadow-soft h-full flex flex-col justify-between border border-butter-200">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 font-heading mb-4 flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-xl bg-butter-200 text-amber-900 flex items-center justify-center text-sm">
+                                        <i class="fa-solid fa-landmark"></i>
+                                    </span>
+                                    Campus Organizations
+                                </h3>
+
+                                <div class="space-y-4">
+                                    <div class="p-4 bg-white/90 rounded-2xl border border-butter-200">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-sm">
+                                                BAP
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800 text-sm">Beta Alpha Psi</h4>
+                                                <p class="text-xs text-slate-500">Financial Information Honor Society</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="p-4 bg-white/90 rounded-2xl border border-butter-200">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-xl bg-butter-200 text-amber-900 flex items-center justify-center font-bold text-sm">
+                                                RAA
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800 text-sm">Rutgers Accounting Association</h4>
+                                                <p class="text-xs text-slate-500">Accounting Workshops & Networking</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="p-4 bg-white/90 rounded-2xl border border-butter-200">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-sm">
+                                                DECA
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800 text-sm">DECA Rutgers</h4>
+                                                <p class="text-xs text-slate-500">Business Case Competitions</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="p-4 bg-white/90 rounded-2xl border border-butter-200">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm">
+                                                HC
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800 text-sm">Honors Latinx Group</h4>
+                                                <p class="text-xs text-slate-500">Affinity Leader & Community Organizer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-butter-300 text-center">
+                                <span class="text-xs text-amber-900 font-bold">Rutgers Honors Scholar & Active Member</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Beyond the Ledger / Personal Interests -->
+        <section class="py-12 relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card-amber p-8 sm:p-10 rounded-3xl shadow-soft border border-butter-300 relative overflow-hidden">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                        
+                        <div class="text-center md:text-left">
+                            <span class="px-3.5 py-1 bg-amber-200/80 text-amber-950 text-[11px] font-bold uppercase tracking-wider rounded-full border border-butter-300">
+                                Beyond The Ledger
+                            </span>
+                            <h3 class="text-2xl font-extrabold text-slate-900 font-heading mt-2">
+                                Interests & Passions
+                            </h3>
+                            <p class="text-xs text-slate-600 mt-1">What keeps me energized outside the classroom and accounting labs.</p>
+                        </div>
+
+                        <!-- Interest Badges -->
+                        <div class="flex flex-wrap items-center justify-center md:justify-end gap-2.5 max-w-xl">
+                            <span class="px-3.5 py-2 bg-white/90 text-slate-800 text-xs font-bold rounded-2xl shadow-sm border border-butter-200 flex items-center gap-2">
+                                <i class="fa-solid fa-music text-amber-600"></i> Bachata Dancing
+                            </span>
+                            <span class="px-3.5 py-2 bg-white/90 text-slate-800 text-xs font-bold rounded-2xl shadow-sm border border-butter-200 flex items-center gap-2">
+                                <i class="fa-solid fa-ticket text-sky-600"></i> Broadway Musicals
+                            </span>
+                            <span class="px-3.5 py-2 bg-white/90 text-slate-800 text-xs font-bold rounded-2xl shadow-sm border border-butter-200 flex items-center gap-2">
+                                <i class="fa-solid fa-martini-glass-citrus text-amber-600"></i> Mixology
+                            </span>
+                            <span class="px-3.5 py-2 bg-white/90 text-slate-800 text-xs font-bold rounded-2xl shadow-sm border border-butter-200 flex items-center gap-2">
+                                <i class="fa-solid fa-dumbbell text-sky-600"></i> Weightlifting
+                            </span>
+                            <span class="px-3.5 py-2 bg-white/90 text-slate-800 text-xs font-bold rounded-2xl shadow-sm border border-butter-200 flex items-center gap-2">
+                                <i class="fa-solid fa-drum text-purple-600"></i> Jazz Music
+                            </span>
+                            <span class="px-3.5 py-2 bg-white/90 text-slate-800 text-xs font-bold rounded-2xl shadow-sm border border-butter-200 flex items-center gap-2">
+                                <i class="fa-solid fa-utensils text-amber-600"></i> Peruvian Food
+                            </span>
+                            <span class="px-3.5 py-2 bg-white/90 text-slate-800 text-xs font-bold rounded-2xl shadow-sm border border-butter-200 flex items-center gap-2">
+                                <i class="fa-solid fa-dog text-sky-600"></i> Snoopy
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 lg:py-24 relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                
+                <span class="px-3.5 py-1.5 bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider rounded-full border border-sky-200">Let's Connect</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 font-heading">Get in Touch</h2>
+                <p class="text-slate-600 mt-2 text-base max-w-md mx-auto">
+                    Interested in Big 4 recruitment, accounting internships, or campus leadership? Feel free to reach out directly!
+                </p>
+
+                <div class="mt-10 glass-card-amber p-8 sm:p-10 rounded-3xl shadow-soft max-w-2xl mx-auto border border-butter-200">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div class="text-left space-y-1">
+                            <span class="text-xs text-amber-800 font-bold uppercase tracking-wider">Direct Email</span>
+                            <div class="text-slate-900 font-extrabold text-lg sm:text-xl font-heading break-all">mh1844@scarletmail.rutgers.edu</div>
+                            <span class="text-xs text-slate-500 block">Carteret, NJ • (732) 784-0444</span>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                            <button onclick="copyEmail('mh1844@scarletmail.rutgers.edu')" class="px-5 py-3 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold rounded-2xl transition-all shadow-md shadow-sky-200 flex items-center justify-center gap-2">
+                                <i class="fa-regular fa-copy text-sm"></i>
+                                Copy Email
+                            </button>
+                            <a href="https://www.linkedin.com/in/michelle-hernandez-pro" target="_blank" rel="noopener" class="px-5 py-3 bg-white hover:bg-slate-50 text-sky-700 border border-sky-200 text-xs font-bold rounded-2xl transition-all shadow-sm flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-linkedin text-lg"></i>
+                                LinkedIn
+                            </a>
+                            <a href="Michelle_Hernandez_Resume.pdf" target="_blank" class="px-5 py-3 bg-amber-200 hover:bg-amber-300 text-amber-950 border border-amber-300 text-xs font-bold rounded-2xl transition-all shadow-sm flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-file-pdf text-sm"></i>
+                                Resume PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/80 border-t border-sky-100 py-8 text-slate-500 text-xs">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-lg bg-sky-600 text-white font-bold flex items-center justify-center text-[10px]">MH</div>
+                <span class="font-bold text-slate-800">Michelle Hernandez</span>
+                <span class="text-slate-300">•</span>
+                <span>Rutgers Honors College BS Accounting Candidate</span>
+            </div>
+            <div>
+                &copy; <script>document.write(new Date().getFullYear())</script> Michelle Hernandez. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Copy Email Functionality using Clipboard API with fallback
+        function copyEmail(email) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(email).then(() => {
+                    showToast("Copied email address to clipboard!");
+                }).catch(() => {
+                    fallbackCopyText(email);
+                });
+            } else {
+                fallbackCopyText(email);
+            }
+        }
+
+        function fallbackCopyText(text) {
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast("Copied email address to clipboard!");
+        }
+
+        // Show Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = message;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Mobile Menu Drawer Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
